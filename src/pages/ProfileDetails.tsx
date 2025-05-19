@@ -1,82 +1,72 @@
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, User, Settings } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 export default function ProfileDetails() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4">
-      <div className="max-w-md mx-auto">
-        <div className="flex items-center mb-6">
+    <div className="min-h-screen bg-gray-100">
+      {/* Header with green background */}
+      <div className="bg-green-700 text-white p-4 pb-32 relative">
+        <div className="flex items-center">
           <Button 
             variant="ghost" 
             size="sm" 
-            onClick={() => navigate("/")} 
-            className="mr-2"
+            onClick={() => navigate("/transaction-details")} 
+            className="text-white p-0"
           >
-            <ArrowLeft className="h-4 w-4" />
+            <ArrowLeft className="h-5 w-5" />
           </Button>
-          <h1 className="text-xl font-bold">Profile Details</h1>
+          <h1 className="text-xl font-semibold ml-2">Profile</h1>
         </div>
         
-        <div className="flex flex-col items-center justify-center mb-6">
-          <div className="bg-primary rounded-full p-6 mb-3">
-            <User className="h-12 w-12 text-white" />
+        {/* Profile Avatar */}
+        <div className="absolute left-1/2 transform -translate-x-1/2 bottom-0 translate-y-1/2">
+          <div className="bg-gray-200 rounded-full w-24 h-24 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
           </div>
-          <h2 className="text-xl font-bold">John Doe</h2>
-          <p className="text-gray-500">john.doe@example.com</p>
         </div>
-
-        <Card className="mb-6">
-          <CardHeader className="pb-4">
-            <CardTitle className="text-lg font-semibold">Personal Information</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="flex justify-between items-center">
-              <span className="text-gray-500">Full Name</span>
-              <span className="font-medium">John Doe</span>
-            </div>
-            <div className="flex justify-between items-center">
-              <span className="text-gray-500">Email</span>
-              <span className="font-medium">john.doe@example.com</span>
-            </div>
-            <div className="flex justify-between items-center">
-              <span className="text-gray-500">Phone Number</span>
-              <span className="font-medium">+1 (555) 123-4567</span>
-            </div>
-            <div className="flex justify-between items-center">
-              <span className="text-gray-500">Date of Birth</span>
-              <span className="font-medium">January 1, 1990</span>
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card className="mb-6">
-          <CardHeader className="pb-4">
-            <CardTitle className="text-lg font-semibold">Account Information</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="flex justify-between items-center">
-              <span className="text-gray-500">Member Since</span>
-              <span className="font-medium">January 2023</span>
-            </div>
-            <div className="flex justify-between items-center">
-              <span className="text-gray-500">Last Login</span>
-              <span className="font-medium">May 19, 2025</span>
-            </div>
-            <div className="flex justify-between items-center">
-              <span className="text-gray-500">Account Status</span>
-              <span className="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-medium">Active</span>
+      </div>
+      
+      {/* Profile details card */}
+      <div className="max-w-md mx-auto px-4 mt-16">
+        <Card className="bg-white shadow-sm">
+          <CardContent className="p-6">
+            <h2 className="text-lg font-semibold text-center mb-6">Personal Details</h2>
+            
+            <div className="space-y-4">
+              <div className="space-y-1">
+                <p className="text-sm text-gray-600">Name</p>
+                <p>- Dezusa</p>
+              </div>
+              
+              <div className="space-y-1">
+                <p className="text-sm text-gray-600">Tel</p>
+                <p>- 8767760912</p>
+              </div>
+              
+              <div className="space-y-1">
+                <p className="text-sm text-gray-600">Email ID</p>
+                <p>- pd@gmail.com</p>
+              </div>
+              
+              <div className="space-y-1">
+                <p className="text-sm text-gray-600">DOB</p>
+                <p>- 27/09/1990</p>
+              </div>
+              
+              <div className="space-y-1">
+                <p className="text-sm text-gray-600">User ID</p>
+                <p>- 980DUUOIU</p>
+              </div>
             </div>
           </CardContent>
         </Card>
-
-        <Button className="w-full" variant="outline" onClick={() => navigate("/transaction-details")}>
-          <Settings className="mr-2 h-4 w-4" /> View Transactions
-        </Button>
       </div>
     </div>
   );
